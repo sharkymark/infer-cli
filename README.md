@@ -20,13 +20,22 @@ Infer CLI is a command-line tool that lets the user choose a large language mode
 - The model generates an answer
 - The answer is displayed to the user
 
+## API keys as environment variables
+The following environment variables are required to be set in the user's environment:
+- `GROQ_API_KEY`
+- `HF_API_KEY`
+- `OPENROUTER_API_KEY`
+- `GEMINI_API_KEY`
+
 ## Installation
 
-To install Infer CLI, clone the repository and install the dependencies:
+To install Infer CLI, clone the repository, create a virtual Python environment, and install the dependencies:
 
 ```bash
 git clone https://github.com/yourusername/infer-cli.git
 cd infer-cli
+python -m venv venv_infer-cli
+source venv_infer_cli/bin/activate
 pip install -r requirements.txt
 ```
 
