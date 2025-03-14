@@ -66,7 +66,7 @@ import lunar_interceptor
 ```
 `requirements.txt`:
 ```python
-lunar-interceptor==0.1.0
+lunar-interceptor==0.4.x
 ```
 `devcontainer.json`:
 ```json
