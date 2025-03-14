@@ -7,6 +7,18 @@ Infer CLI is a command-line tool that lets the user choose a large language mode
 - **Model Agnostic**: Use any large language model (e.g., GPT-4o, Meta Llama, etc).
 - **Leverage AI routers**: Use cloud-based AI routers to access the models.
 - **Python CLIs**: Use Python packages from LLM providers to access the models.
+- **AI routers supported**: Using AI routers like Groq, Hugging Face, OpenRouter
+- **Native LLM support**: Use native LLMs like Google Gemini
+
+## User flow
+- User runs the CLI
+- User selects the AI router
+- User selects the model e.g., OpenAI GPT-4o
+- User asks a question
+- The CLI sends the question to the AI router
+- The AI router sends the question to the model
+- The model generates an answer
+- The answer is displayed to the user
 
 ## Installation
 
