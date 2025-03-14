@@ -25,6 +25,8 @@ def search(router, model, search_criteria):
 def search_groq(selected_model, search_criteria):
     # Implement the search logic for Groq
     # https://github.com/groq/groq-python
+    # https://console.groq.com/docs/quickstart
+    # https://console.groq.com/docs/libraries
     
     client = Groq(
         api_key=os.environ.get("GROQ_API_KEY")
