@@ -54,6 +54,32 @@ Infer data from a JSON file:
 python infer_cli.py
 ```
 
+## egress api 
+
+This project is experimenting with https://lunar.dev, an egress api server to manage and monitor API calls made from the CLI.
+
+To remove the egress api, remove the following code:
+
+`infer_cli.py`:
+```python
+import lunar_interceptor
+```
+`requirements.txt`:
+```python
+lunar-interceptor==0.1.0
+```
+`devcontainer.json`:
+```json
+"LUNAR_PROXY_HOST": "${localEnv:LUNAR_PROXY_HOST}"
+```
+
+## devcontainer
+
+This project includes a `devcontainer.json` file for use with Visual Studio Code's Remote - Containers extension. To use this feature, install the extension, open the command palette, and select "Remote-Containers: Reopen in Container".
+
+A Docker host must be running on the local machine for this feature to work.
+
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request on GitHub.

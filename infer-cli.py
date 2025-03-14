@@ -3,6 +3,7 @@ from groq import Groq
 from openai import OpenAI
 from huggingface_hub import InferenceClient
 import os
+import lunar_interceptor
 
 def display_results(results):
     print("\nSearch Results:")

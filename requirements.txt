@@ -2,3 +2,4 @@ google-genai
 groq
 openai
 huggingface-hub
+lunar-interceptor==0.4.*
