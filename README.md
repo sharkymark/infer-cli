@@ -44,14 +44,14 @@ pip install -r requirements.txt
 To use Infer CLI, run the following command:
 
 ```bash
-python infer_cli.py 
+python infer-cli.py 
 ```
 ### Examples
 
 Infer data from a JSON file:
 
 ```bash
-python infer_cli.py
+python infer-cli.py
 ```
 
 ## egress api 
@@ -60,7 +60,7 @@ This project is experimenting with https://lunar.dev, an egress api server to ma
 
 To remove the egress api, remove the following code:
 
-`infer_cli.py`:
+`infer-cli.py`:
 ```python
 import lunar_interceptor
 ```
