@@ -1,6 +1,6 @@
 # Infer CLI
 
-Infer CLI is a command-line tool that lets the user choose a large language model and ask it questions using Python. 
+Infer CLI is a command-line tool that lets the user choose a large language model and ask it questions using Python.
 
 ## Features
 
@@ -44,7 +44,7 @@ pip install -r requirements.txt
 To use Infer CLI, run the following command:
 
 ```bash
-python infer-cli.py 
+python infer-cli.py
 ```
 ### Examples
 
@@ -54,11 +54,11 @@ Infer data from a JSON file:
 python infer-cli.py
 ```
 
-## egress api 
+## egress api
 
 This project is experimenting with https://lunar.dev, an egress api server to manage and monitor API calls made from the CLI.
 
-To remove the egress api, remove the following code:
+To add the egress api, add the following code:
 
 `infer-cli.py`:
 ```python

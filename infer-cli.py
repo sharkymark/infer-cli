@@ -3,7 +3,6 @@ from groq import Groq
 from openai import OpenAI
 from huggingface_hub import InferenceClient
 import os
-import lunar_interceptor
 
 def display_results(results):
     print("\nSearch Results:")
@@ -27,7 +26,7 @@ def search_groq(selected_model, search_criteria):
     # https://github.com/groq/groq-python
     # https://console.groq.com/docs/quickstart
     # https://console.groq.com/docs/libraries
-    
+
     client = Groq(
         api_key=os.environ.get("GROQ_API_KEY")
     )
@@ -61,7 +60,7 @@ def search_hugging_face(selected_model, search_criteria):
     # https://github.com/huggingface/hfapi
     # https://huggingface.co/docs/huggingface_hub/guides/inference
 
-    
+
     api_key = os.getenv("HF_API_KEY")
     if not api_key:
         raise ValueError("Please set the HF_API_KEY environment variable.")
@@ -122,9 +121,9 @@ def choose_model(routers):
         print("2. Gemini 2.0 Flash Experimental")
         print("3. Gemini 2.0 Flash Thinking")
         print("4. Gemini 2.0 Pro")
-    
+
         choice = input("Enter your choice: ")
-        
+
         if choice == '1':
             return 'gemini-2.0-flash'
         elif choice == '2':
@@ -142,9 +141,9 @@ def choose_model(routers):
         print("1. Llama 3.3 70b")
         print("2. Llama 3 70b 8192")
         print("3. Deepseek R1")
-    
+
         choice = input("Enter your choice: ")
-        
+
         if choice == '1':
             return 'llama-3.3-70b-versatile'
         elif choice == '2':
@@ -161,9 +160,9 @@ def choose_model(routers):
         print("1. OpenAI: GPT 4o mini")
         print("2. OpenAI: GPT 4o search preview")
         print("3. Anthropic: Claude 3.7 Sonnet")
-    
+
         choice = input("Enter your choice: ")
-        
+
         if choice == '1':
             return 'openai/gpt-4o-mini-search-preview'
         elif choice == '2':
@@ -177,9 +176,9 @@ def choose_model(routers):
         # https://huggingface.co/models
         print("Choose a model:")
         print("1. Meta Llama 3.2 3B")
-    
+
         choice = input("Enter your choice: ")
-        
+
         if choice == '1':
             return 'meta-llama/Llama-3.2-3B-Instruct'
         else:
@@ -194,9 +193,9 @@ def main_menu():
         print("3. OpenRouter")
         print("4. Google Gemini")
         print("5. Exit")
-        
+
         choice = input("Enter your choice: ")
-        
+
         if choice == '1':
             router = 'groq'
         elif choice == '2':
@@ -210,17 +209,17 @@ def main_menu():
         else:
             print("Invalid choice. Please try again.")
             continue
-        
+
         model = choose_model(router)
         search_criteria = input("Enter search criteria: ")
         results = search(router, model, search_criteria)
         display_results(results)
-        
+
         while True:
             print("1. Enter another search for the same router/model")
             print("2. Go back to the main menu")
             sub_choice = input("Enter your choice: ")
-            
+
             if sub_choice == '1':
                 search_criteria = input("Enter search criteria: ")
                 results = search(router, model, search_criteria)
