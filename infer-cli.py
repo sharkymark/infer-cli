@@ -22,14 +22,17 @@ def search(router, model, search_criteria):
         return []
 
 def search_groq(selected_model, search_criteria):
+    api_key = os.environ.get("GROQ_API_KEY")
+    if not api_key:
+        print("Please set the GROQ_API_KEY environment variable.")
+        return []
+
     # Implement the search logic for Groq
     # https://github.com/groq/groq-python
     # https://console.groq.com/docs/quickstart
     # https://console.groq.com/docs/libraries
 
-    client = Groq(
-        api_key=os.environ.get("GROQ_API_KEY")
-    )
+    client = Groq(api_key=api_key)
 
     chat_completion = client.chat.completions.create(
         messages=[
@@ -44,28 +47,32 @@ def search_groq(selected_model, search_criteria):
 
 
 def search_google_gemini(selected_model, search_criteria):
+    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key:
+        print("Please set the GEMINI_API_KEY environment variable.")
+        return []
+
     # Implement the search logic for Google Gemini
     # https://ai.google.dev/gemini-api/docs/quickstart?lang=python
 
-    client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+    client = genai.Client(api_key=api_key)
     response = client.models.generate_content(
         model=selected_model, contents=search_criteria
     )
     return [response.text]
 
 def search_hugging_face(selected_model, search_criteria):
+    api_key = os.getenv("HF_API_KEY")
+    if not api_key:
+        print("Please set the HF_API_KEY environment variable.")
+        return []
+
     # Implement the search logic for Hugging Face
     # https://huggingface.co/docs/huggingface_hub/v0.13.2/en/guides/inference
     # https://huggingface.co/docs/huggingface_hub/guides/inference#legacy-inferenceapi-client
     # https://github.com/huggingface/hfapi
     # https://huggingface.co/docs/huggingface_hub/guides/inference
 
-
-    api_key = os.getenv("HF_API_KEY")
-    if not api_key:
-        raise ValueError("Please set the HF_API_KEY environment variable.")
-
-    # Initialize the InferenceApi with the selected model
     inference = InferenceClient(model=selected_model, token=api_key)
 
     # Send the search criteria (prompt) to the model
@@ -83,12 +90,13 @@ def search_hugging_face(selected_model, search_criteria):
 
 
 def search_openrouter(selected_model, search_criteria):
-    # Implement the search logic for OpenRouter
-    # https://openrouter.ai/docs/quickstart
-
     api_key = os.getenv("OPENROUTER_API_KEY")
     if not api_key:
-        raise ValueError("Please set the OPENROUTER_API_KEY environment variable.")
+        print("Please set the OPENROUTER_API_KEY environment variable.")
+        return []
+
+    # Implement the search logic for OpenRouter
+    # https://openrouter.ai/docs/quickstart
 
     client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
